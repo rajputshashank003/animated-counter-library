@@ -6,6 +6,11 @@ interface CounterInterface {
     max: number;
 }
 
+interface ButtonInterface {
+    onClick: () => void;
+    children?: React.ReactNode;
+}
+
 const Counter = ( props: CounterInterface ) => {
 
     const [ one , setOne ] = useState(props?.min === undefined || props?.min < 9 ? undefined : Math.floor(props.min / 10) );
@@ -159,11 +164,6 @@ const Counter = ( props: CounterInterface ) => {
             </Button>
         </div>
     )
-}
-
-interface ButtonInterface {
-    onClick: () => void;
-    children?: React.ReactNode;
 }
 
 const Button = ({ onClick, children }: ButtonInterface) => {
