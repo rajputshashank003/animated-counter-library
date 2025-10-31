@@ -1,0 +1,35 @@
+{
+    "name": "animated-motion-counter",
+    "version": "0.0.2",
+    "description": "Reusable animated counter component to increase or decrease ",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "rollup": "rollup -c --bundleConfigAsCjs"
+    },
+    "author": "rajputshashank",
+    "license": "ISC",
+    "dependencies": {
+        "gsap": "^3.13.0",
+        "react": "^19.1.0",
+        "rollup": "^4.52.5"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^29.0.0",
+        "@rollup/plugin-node-resolve": "^16.0.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^12.3.0",
+        "@tailwindcss/postcss": "^4.1.16",
+        "@types/react": "^19.1.2",
+        "autoprefixer": "^10.4.21",
+        "postcss": "^8.5.6",
+        "rollup-plugin-dts": "^6.2.3",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "^4.0.2",
+        "tailwindcss": "^4.1.16",
+        "tslib": "^2.8.1",
+        "typescript": "^5.9.3"
+    }
+}
