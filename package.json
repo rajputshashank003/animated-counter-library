@@ -1,6 +1,6 @@
 {
     "name": "animated-motion-counter",
-    "version": "0.0.2",
+    "version": "1.0.3",
     "description": "Reusable animated counter component to increase or decrease ",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
@@ -14,7 +14,8 @@
     "dependencies": {
         "gsap": "^3.13.0",
         "react": "^19.1.0",
-        "rollup": "^4.52.5"
+        "rollup": "^4.52.5",
+        "framer-motion": "^12.23.24"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^29.0.0",
