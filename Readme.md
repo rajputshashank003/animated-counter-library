@@ -18,3 +18,39 @@ To run this project locally:
 ```bash
 # using npm
 npm install animated-motion-counter
+``` 
+## Usage
+
+- Component - App.tsx
+```bash
+import { Counter } from "animated-motion-counter";
+import React, { useState } from "react";
+
+export default function App() {
+  const [value, setValue] = useState(19);
+
+  const handleIncrease = (newValue: number) => {
+    console.log("Increased to:", newValue);
+    setValue(newValue);
+  };
+
+  const handleDecrease = (newValue: number) => {
+    console.log("Decreased to:", newValue);
+    setValue(newValue);
+  };
+
+  return (
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
+      <Counter
+        min={19}
+        max={22}
+        onIncrease={handleIncrease}
+        onDecrease={handleDecrease}
+        size="large"
+        buttonColor="red"
+        iconColor="white"
+        textColor="white"
+      />
+    </div>
+  );
+}
