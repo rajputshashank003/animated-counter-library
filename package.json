@@ -1,6 +1,6 @@
 {
     "name": "animated-motion-counter",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "Reusable animated counter component to increase or decrease ",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
