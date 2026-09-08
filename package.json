@@ -1,6 +1,6 @@
 {
     "name": "animated-motion-counter",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "Reusable animated counter component to increase or decrease ",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
@@ -45,7 +45,7 @@
         "autoprefixer": "^10.4.21",
         "postcss": "^8.5.6",
         "react": "^19.1.0",
-        "react-dom": "^19.1.0",
+        "react-dom": "^19.2.8",
         "rollup": "^4.52.5",
         "rollup-plugin-dts": "^6.2.3",
         "rollup-plugin-peer-deps-external": "^2.2.4",

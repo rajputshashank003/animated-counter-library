@@ -51,7 +51,6 @@ export default [
             postcss({
                 plugins: [tailwind(), autoprefixer()],
                 inject: true,
-                extract: 'styles.css',
                 minimize: false,
             }),
             terser(),
