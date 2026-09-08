@@ -5,17 +5,35 @@
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./styles.css": "./dist/styles.css"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "rollup": "rollup -c --bundleConfigAsCjs"
     },
     "author": "rajputshashank",
     "license": "ISC",
+    "peerDependencies": {
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
+    },
+    "peerDependenciesMeta": {
+        "react-dom": {
+            "optional": true
+        }
+    },
     "dependencies": {
-        "gsap": "^3.13.0",
-        "react": "^19.1.0",
-        "rollup": "^4.52.5",
-        "framer-motion": "^12.23.24"
+        "framer-motion": "^12.23.24",
+        "gsap": "^3.13.0"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^29.0.0",
@@ -26,6 +44,9 @@
         "@types/react": "^19.1.2",
         "autoprefixer": "^10.4.21",
         "postcss": "^8.5.6",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "rollup": "^4.52.5",
         "rollup-plugin-dts": "^6.2.3",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-postcss": "^4.0.2",

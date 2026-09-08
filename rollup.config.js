@@ -1,4 +1,6 @@
-const packageJson = require('./package.json');
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const packageJson = require("./package.json");
 
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
@@ -11,19 +13,34 @@ import postcss from "rollup-plugin-postcss";
 import tailwind from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
 
+const externalDependencies = [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "react/jsx-dev-runtime",
+    "framer-motion",
+    "gsap",
+    /^react(\/.*)?$/,
+    /^react-dom(\/.*)?$/,
+    /^framer-motion(\/.*)?$/,
+    /^gsap(\/.*)?$/,
+];
+
 export default [
     {
-        input: 'src/index.ts',
+        input: "src/index.ts",
         output: [
             {
                 file: packageJson.main,
-                format: 'cjs',
+                format: "cjs",
                 sourcemap: true,
+                exports: "named",
             },
             {
                 file: packageJson.module,
-                format: 'esm',
+                format: "esm",
                 sourcemap: true,
+                exports: "named",
             },
         ],
         plugins: [
@@ -33,16 +50,18 @@ export default [
             typescript({ tsconfig: "./tsconfig.json" }),
             postcss({
                 plugins: [tailwind(), autoprefixer()],
-                extract: 'styles.css', // this will create dist/styles.css
-                minimize: true,
+                inject: true,
+                extract: 'styles.css',
+                minimize: false,
             }),
             terser(),
         ],
-        external: ["react", "react-dom"],
+        external: externalDependencies,
     },
     {
         input: "src/index.ts",
         output: [{ file: packageJson.types }],
         plugins: [dts.default()],
+        external: [/\.css$/, ...externalDependencies],
     },
 ];

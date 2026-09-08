@@ -10,6 +10,8 @@ interface CounterInterface {
     buttonColor?: string;
     textColor?: string;
 }
+type CounterProps = CounterInterface;
 declare const Counter: (props: CounterInterface) => react_jsx_runtime.JSX.Element;
 
-export { Counter as default };
+export { Counter as AnimatedMotionCounter, Counter, Counter as default };
+export type { CounterInterface, CounterProps };
