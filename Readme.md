@@ -1,56 +1,98 @@
 # Animated Motion Counter
 
-## Description
-This project is an animated motion counter that visually represents numerical data in an engaging way.
+A customizable animated motion counter component for React powered by GSAP and Framer Motion. Features blur transitions, digit sliding, and tap spring effects out of the box with zero CSS configuration required.
+
+---
 
 ## Live Demo
-You can view the live version of the project at [animatedcounter.vercel.app](https://animatedcounter.vercel.app).
+
+Check out the live interactive demo at: [animatedcounter.vercel.app](https://animatedcounter.vercel.app)
+
+---
 
 ## Features
-- Smooth animations
-- Responsive design
-- Easy to integrate
+
+- **Zero CSS Setup** — Styles are auto-injected automatically into `<head>`.
+- **Lightweight** — Minimal bundle size (< 5 KB gzipped).
+- **Fully Customizable** — Custom colors for buttons, icons, and text.
+- **Multiple Sizes** — `small`, `medium`, and `large` presets with matching icon scaling.
+- **Spring Tap & Blur Animations** — Fluid micro-interactions on tap and state changes.
+- **TypeScript Ready** — Full type definitions and IDE auto-import support.
+
+---
 
 ## Installation
-To run this project locally:
- Copy and paste the command below into your terminal:
 
 ```bash
 # using npm
 npm install animated-motion-counter
-``` 
-## Usage
 
-- Component - App.tsx
-```bash
-import { Counter } from "animated-motion-counter";
+# using yarn
+yarn add animated-motion-counter
+
+# using pnpm
+pnpm add animated-motion-counter
+
+# using bun
+bun add animated-motion-counter
+```
+
+---
+
+## Quick Start
+
+```tsx
 import React, { useState } from "react";
+import { Counter } from "animated-motion-counter";
 
 export default function App() {
   const [value, setValue] = useState(19);
 
-  const handleIncrease = (newValue: number) => {
-    console.log("Increased to:", newValue);
-    setValue(newValue);
-  };
-
-  const handleDecrease = (newValue: number) => {
-    console.log("Decreased to:", newValue);
-    setValue(newValue);
-  };
-
   return (
     <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
       <Counter
-        min={19}
-        max={22}
-        onIncrease={handleIncrease}
-        onDecrease={handleDecrease}
+        min={0}
+        max={50}
         size="large"
-        buttonColor="red"
-        iconColor="white"
-        textColor="white"
+        buttonColor="#ef4444"
+        iconColor="#ffffff"
+        textColor="#ffffff"
+        onIncrease={(newVal) => {
+          console.log("Increased:", newVal);
+          setValue(newVal);
+        }}
+        onDecrease={(newVal) => {
+          console.log("Decreased:", newVal);
+          setValue(newVal);
+        }}
       />
     </div>
   );
 }
+```
+
+> **Note:** You can also import it as default:
+> ```tsx
+> import AnimatedMotionCounter from "animated-motion-counter";
+> ```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `min` | `number` | `0` | Minimum value & initial starting counter value |
+| `max` | `number` | `undefined` | Maximum allowed value |
+| `size` | `'small' \| 'medium' \| 'large'` | `'large'` | Size preset for buttons and numbers |
+| `buttonColor` | `string` | `'#525252'` | Background color for increase/decrease buttons |
+| `iconColor` | `string` | `'#ffffff'` | Color of the plus/minus icons |
+| `textColor` | `string` | `'#ffffff'` | Color of the numeric counter digits |
+| `onIncrease` | `(newValue: number) => void` | `undefined` | Callback fired when counter increases |
+| `onDecrease` | `(newValue: number) => void` | `undefined` | Callback fired when counter decreases |
+
+---
+
+## License
+
+ISC © [rajputshashank](https://github.com/rajputshashank003)
